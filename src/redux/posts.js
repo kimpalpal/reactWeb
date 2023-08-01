@@ -5,19 +5,19 @@ const initialState = [
     id: "1",
     title: "제목",
     content: "내용",
-    author: "병수",
+    author: "의진",
   },
   {
     id: "2",
     title: "제목2",
     content: "내용2",
-    author: "병수2",
+    author: "의진2",
   },
   {
     id: "3",
     title: "제목3",
     content: "내용3",
-    author: "병수3",
+    author: "의진3",
   },
 ];
 
