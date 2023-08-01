@@ -3,12 +3,35 @@ import Header from "../common/Header";
 import Container from "../common/Container";
 import { useDispatch, useSelector } from "react-redux";
 import { deletePost } from "../redux/posts";
+import { collection, getDocs, query } from "firebase/firestore";
+import { db } from "../firebase/firebase";
+import { useEffect, useState } from "react";
+import { async } from "@firebase/util";
 
 export default function Main() {
   const navigate = useNavigate();
   // @ts-ignore
   const posts = useSelector((state) => state.posts);
   const dispatch = useDispatch();
+
+  //firebase 에서 데이터 가저오기
+  useEffect(() => {
+    const fetchData = async () => {
+      const q = query(collection(db, "posts"));
+      const querySnapshot = await getDocs(q);
+
+      const initialPosts = [];
+
+      querySnapshot.forEach((doc) => {
+        const data = {
+          id: doc.id,
+          ...doc.data(),
+        };
+        console.log("data", data);
+        initialPosts.push(data);
+      });
+    };
+  });
   return (
     <>
       <Header />

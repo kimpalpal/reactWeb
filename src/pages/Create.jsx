@@ -5,6 +5,8 @@ import { nanoid } from "nanoid";
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { addPost } from "../redux/posts";
+import { collection, getDocs, query } from "firebase/firestore";
+import { db } from "../firebase/firebase";
 
 export default function Create() {
   const dispatch = useDispatch();

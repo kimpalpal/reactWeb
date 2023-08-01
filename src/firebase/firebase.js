@@ -1,6 +1,6 @@
 import { initializeApp } from "firebase/app";
 import { getAuth } from "firebase/auth";
-
+import { getFirestore } from "firebase/firestore";
 // firebaseConfig= firebase에서 어플리케이션 만들면 주는 놈
 const firebaseConfig = {
   apiKey: "AIzaSyByQQ2KGbWw56AtG3E4GG6o1QZ3aN1zRdk",
@@ -15,3 +15,4 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 //내 어플리케이션에서 계정 관련된 데이터만 뽑아서 넣어줌
 export const auth = getAuth(app);
+export const db = getFirestore(app);

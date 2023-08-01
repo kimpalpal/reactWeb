@@ -43,3 +43,9 @@ const posts = createSlice({
 
 export const { deletePost, addPost, editPost } = posts.actions;
 export default posts;
+
+export const SET_POSTS = "posts/setPosts";
+export const setPosts = (posts) => ({
+  type: SET_POSTS,
+  payload: posts,
+});
