@@ -5,6 +5,24 @@
       "title": "제목예시",
       "content": "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Lorem ipsum dolor, sit amet consectetur adipisicing elit.Lorem ipsum dolor, sit amet consectetur adipisicing elit.Lorem ipsum dolor, sit amet consectetur adipisicing elit.",
       "author": "abc@naver.com"
-    }
+    },
+    {
+    "id": 2,
+    "title": "제목",
+    "content": "내용",
+    "author": "의진"
+  },
+      {
+    "id": 3,
+    "title": "제목3",
+    "content": "내용3",
+    "author": "의진3"
+  },
+      {
+    "id": 4,
+    "title": "제목4",
+    "content": "내용4",
+    "author": "의진4"
+  }
   ]
 }
