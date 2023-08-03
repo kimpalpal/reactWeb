@@ -21,6 +21,7 @@ export default function Create() {
       [e.target.name]: e.target.value,
     }));
   };
+
   return (
     <>
       <Header />
@@ -37,7 +38,7 @@ export default function Create() {
             dispatch(
               addPost({
                 id: nanoid(),
-                author: "병수",
+                author: nanoid(),
                 ...inputs,
               })
             );
