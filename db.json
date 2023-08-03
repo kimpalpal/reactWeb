@@ -1,28 +1,46 @@
 {
   "posts": [
     {
-      "id": 1,
-      "title": "제목예시",
-      "content": "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Lorem ipsum dolor, sit amet consectetur adipisicing elit.Lorem ipsum dolor, sit amet consectetur adipisicing elit.Lorem ipsum dolor, sit amet consectetur adipisicing elit.",
+      "id": "첫번째",
+      "title": "제목예시ㅇㅇ",
+      "content": "내용입니다ㅇㅇ",
       "author": "abc@naver.com"
     },
     {
-    "id": 2,
-    "title": "제목",
-    "content": "내용",
-    "author": "의진"
-  },
-      {
-    "id": 3,
-    "title": "제목3",
-    "content": "내용3",
-    "author": "의진3"
-  },
-      {
-    "id": 4,
-    "title": "제목4",
-    "content": "내용4",
-    "author": "의진4"
-  }
+      "id": 3,
+      "title": "세번째",
+      "content": "내용3",
+      "author": "의진3"
+    },
+    {
+      "id": 4,
+      "title": "네번째",
+      "content": "내용4",
+      "author": "의진4"
+    },
+    {
+      "title": "다섯번째 ",
+      "content": "내용",
+      "authur": "김작가",
+      "id": 5
+    },
+    {
+      "id": "mjwGxlccOldf7vwKVJK-V",
+      "title": "추가된 제목",
+      "content": "추가된내용",
+      "author": "추가된작가"
+    },
+    {
+      "id": "GRVyrDstWeK1DHG7TTLNe",
+      "title": "ㅇㄹㅇ",
+      "content": "ㄹㅇㄹㅇ",
+      "author": "ㄹㅇㄹㅇ"
+    },
+    {
+      "id": "PP5353Rj89YPW23IhYduU",
+      "title": "ㅇㅇ",
+      "content": "ㅇㅇ",
+      "author": ""
+    }
   ]
 }

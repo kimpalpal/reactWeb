@@ -3,35 +3,46 @@ import Header from "../common/Header";
 import Container from "../common/Container";
 import { useDispatch, useSelector } from "react-redux";
 import { deletePost } from "../redux/posts";
-import { collection, getDocs, query } from "firebase/firestore";
-import { db } from "../firebase/firebase";
 import { useEffect, useState } from "react";
-import { async } from "@firebase/util";
+import { getPosts } from "../api/posts";
+import { useQuery, useMutation, useQueryClient } from "react-query";
+import axios from "axios";
+import { nanoid } from "nanoid";
 
 export default function Main() {
   const navigate = useNavigate();
-  // @ts-ignore
-  const posts = useSelector((state) => state.posts);
-  const dispatch = useDispatch();
 
-  //firebase 에서 데이터 가저오기
-  useEffect(() => {
-    const fetchData = async () => {
-      const q = query(collection(db, "posts"));
-      const querySnapshot = await getDocs(q);
-
-      const initialPosts = [];
-
-      querySnapshot.forEach((doc) => {
-        const data = {
-          id: doc.id,
-          ...doc.data(),
-        };
-        console.log("data", data);
-        initialPosts.push(data);
-      });
-    };
+  // useQuery=데이터 가저올때 쿼리이름, 임포트해온 Api이름 넣기
+  const { data, isLoading, isError } = useQuery("post", async () => {
+    const response = await axios.get("http://localhost:4000/posts");
+    return response.data;
   });
+
+  //삭제 하기
+  const deleteMutation = useMutation(
+    async (postId) => {
+      const response = await axios.delete(
+        `http://localhost:4000/posts/${postId}`
+      );
+      return response.data;
+    }
+    // {
+    //   // 성공적으로 삭제가 되었을 때 실행
+    //   onSuccess: () => {
+    //     // 쿼리를 재요청.
+    //     queryClient.invalidateQueries("post");
+    //   },
+    // }
+  );
+
+  if (isLoading === true) {
+    return <h2>로딩중..!</h2>;
+  }
+
+  if (isError === true) {
+    return <h2>‼️ 에러가 발생했습니다 ‼️</h2>;
+  }
+
   return (
     <>
       <Header />
@@ -59,7 +70,8 @@ export default function Main() {
             추가
           </button>
         </div>
-        {posts.map((post) => (
+        {/* 옵셔널체이닝 필수 */}
+        {data?.map((post) => (
           <div
             key={post.id}
             style={{
@@ -129,7 +141,7 @@ export default function Main() {
                   onClick={() => {
                     const result = window.confirm("정말로 삭제하시겠습니까?");
                     if (result) {
-                      dispatch(deletePost(post.id));
+                      deleteMutation.mutate(post.id);
                     }
                   }}
                   style={{
